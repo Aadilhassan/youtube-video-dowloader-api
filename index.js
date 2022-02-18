@@ -7,10 +7,14 @@ const app = express();
 
 app.get("/", (req, res) => {
   console.log("received request");
-  const receivedUrl = req.query.url;
+  let receivedUrl = req.query.url;
   let quality = req.query.ql;
   let px_480 = "jfvhv";
-  let arr = []
+  let arre = []
+  if(!receivedUrl){
+    receivedUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  } else{
+  }
   if(!quality){
     quality = 480;
   } else{

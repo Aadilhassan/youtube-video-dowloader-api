@@ -13,4 +13,4 @@ This is a very simple REST api for getting downloading link of any youtube video
  #### In this param you have to pass the youtube watch link. This is a required parameter that you must have to pass if you dont you will get an error. 
 
  2. > `ql`
- #### in this pram you have to pass to quality of the video that you want to download
+ #### In this pram you have to pass to quality of the video that you want to download

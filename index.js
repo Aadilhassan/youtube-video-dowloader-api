@@ -43,11 +43,12 @@ app.get("/", (req, res) => {
     noCheckCertificate: true,
     preferFreeFormats: true,
     youtubeSkipDashManifest: true,
-    referer: receivedUrl
+    referer: receivedUrl,
+    format: "(mp4,webm)[height<300]",
   }).then(output =>  res.send(output))
  
 
-});
+}); 
 
 app.listen("8080");
 

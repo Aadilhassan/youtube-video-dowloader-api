@@ -49,8 +49,8 @@ youtubedl(receivedUrl, {
 }); 
 
 app.post("/ma", function (req, res) {
-let  receivedUrl = req.body.basicurl;
-let  quality   = req.body.flexRadioDefault;
+let receivedUrl = req.body.uri;
+let quality   = req.body.flexRadioDefault;
 
 if(!receivedUrl){
   receivedUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
@@ -65,6 +65,8 @@ if(quality < 144){
   quality = 144;
 } else{
 }
+console.log(receivedUrl)
+console.log(quality)
 
 youtubedl(receivedUrl, {
   dumpSingleJson: true,
@@ -86,7 +88,7 @@ youtubedl(receivedUrl, {
 
 app.get("/magic", function (req, res) {
   
-  res.render("index.ejs");
+  res.render("index.ejs",{dat: " "});
 });
 
 app.listen("8080");

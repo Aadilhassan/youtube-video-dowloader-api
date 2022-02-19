@@ -9,12 +9,11 @@
 </head>
 <body>
 
-
-    <form class="card" style="width: 18rem; align-self: center;" method="post" action="/ma">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon3">URL</span>
-            <input type="text" class="form-control" id="basicurl" name="link" aria-describedby="basic-addon3">
-          </div>
+<div class="card" style="flex: auto;">
+    <form class="card" style="width: 18rem; margin-top: 30px; align-self: center;" method="post" action="/ma">
+        
+            <input type="text" class="form-control" placeholder="url" id="url" name="uri" aria-describedby="basic-addon3">
+        
 
 
           <div class="form-check">
@@ -53,22 +52,28 @@
              1080p
             </label>
           </div>
-       <button type="submit" class="btn btn-success">submit</button>
+       <button type="submit" id="hg" onclick="load()" class="btn btn-success">submit</button>
     </form>
-    
+</div>
 
 
-
+<div id="demo"></div>
 
 
         <script>
 
-            if (`<%= dat.url %>`){
-                let data = `<%= dat.url %>`;
-            console.log(data); 
-            } else{
-
+            if(`<%= dat%>` !== " "){
+                document.getElementById("demo").innerHTML = " <%= dat.title %>  <a href = <%= dat.url %>><button > Download <%= dat.format_note %></button></a> <div class='card' style='width: 100vw'><iframe width='480px' height='360px' src='https://www.youtube.com/embed/<%= dat.id %>''></iframe></div>"
+            }else{
+                console.log(`<%= dat%>`)
             }
+               
+            // console.log(dat); 
+            
+         function load(){
+            document.getElementById("hg").innerHTML = " <div class='spinner-border text-primary' role='status'></div>";
+         
+         }
           
             </script>
 

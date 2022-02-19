@@ -3,14 +3,12 @@ const youtubedl = require("youtube-dl-exec");
 const express = require("express");
 
 const app = express();
-
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   console.log("received request");
   let receivedUrl = req.query.url;
   let quality = req.query.ql;
-  let px_480 = "jfvhv";
-  let arre = []
   if(!receivedUrl){
     receivedUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   } else{
@@ -39,6 +37,12 @@ youtubedl(receivedUrl, {
   
 
 }); 
+
+
+
+app.get("/magic", function (req, res) {
+  res.render("index.ejs");
+});
 
 app.listen("8080");
 

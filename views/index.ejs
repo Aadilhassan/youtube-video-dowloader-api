@@ -8,14 +8,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
   #dl-btn{
-    
+    float: center;
+    margin-top: 10px;
+    width: 100%;
   }
 </style>
 </head>
 <body>
 
-<div class="card" style="flex: auto;">
-    <form class="card" style="width: 18rem; margin-top: 30px; align-self: center;" method="post" action="/ma">
+<div class=" d-flex justify-content-around flex-wrap" >
+  <!-- <span > -->
+<div class="card" style=" margin-top: 30px;">
+    <form class="card" style="max-width:400px;min-width: 300px; "  method="post" action="/ma">
         
             <input type="text" class="form-control" placeholder="url" id="url" name="uri" aria-describedby="basic-addon3">
         
@@ -57,15 +61,19 @@
              1080p
             </label>
           </div>
-       <button type="submit" id="hg" onclick="load()" class="btn btn-success">submit</button>
+       <button type="submit" style="width: 100%;" id="hg" onclick="load()" class="btn btn-success">submit</button>
     </form>
-</div>
+    </div>
+  <!-- </span>
+ -->
 
-<div id="demo"></div>
+<span id="demo" class="card" style="width:400px ;margin-top: 30px;"></span>
+
+</div>
    <script>
 
             if(`<%= dat%>` !== " "){
-                document.getElementById("demo").innerHTML = " <div class='card' ><center> <%= dat.title %></center>  <video id='player' playsinline controls poster=<%= dat.thumbnail %>><source src=<%= dat.url %> type='video/mp4' /> </video>  <a href=<%= dat.url %>><button id='dl-btn' class='btn btn-info' > Download <%= dat.format_note %></button></a></div>"
+                document.getElementById("demo").innerHTML = " <center> <%= dat.title %></center>  <video id='player' playsinline controls poster=<%= dat.thumbnail %>><source src=<%= dat.url %> type='video/mp4' /> </video>  <a href=<%= dat.url %>><button id='dl-btn' class='btn btn-info' > Download <%= dat.format_note %></button></a>"
             }else{
                 console.log(`<%= dat%>`)
             }

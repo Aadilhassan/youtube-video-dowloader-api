@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   console.log("received request");
   let receivedUrl = req.query.url;
   let quality = req.query.ql;
@@ -86,7 +86,7 @@ youtubedl(receivedUrl, {
   // res.render("index.ejs");
 });
 
-app.get("/magic", function (req, res) {
+app.get("/", function (req, res) {
   
   res.render("index.ejs",{dat: " "});
 });

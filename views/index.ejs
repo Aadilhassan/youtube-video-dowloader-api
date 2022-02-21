@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+  #dl-btn{
+    
+  }
+</style>
 </head>
 <body>
 
@@ -56,14 +61,11 @@
     </form>
 </div>
 
-
 <div id="demo"></div>
-
-
-        <script>
+   <script>
 
             if(`<%= dat%>` !== " "){
-                document.getElementById("demo").innerHTML = " <%= dat.title %>  <a href= `<%= dat.url %>` ><button > Download <%= dat.format_note %></button></a> <div class='card' ><iframe width='280px' height='160px' src='https://www.youtube.com/embed/<%= dat.id %>''></iframe></div>"
+                document.getElementById("demo").innerHTML = " <div class='card' ><center> <%= dat.title %></center>  <video id='player' playsinline controls poster=<%= dat.thumbnail %>><source src=<%= dat.url %> type='video/mp4' /> </video>  <a href=<%= dat.url %>><button id='dl-btn' class='btn btn-info' > Download <%= dat.format_note %></button></a></div>"
             }else{
                 console.log(`<%= dat%>`)
             }

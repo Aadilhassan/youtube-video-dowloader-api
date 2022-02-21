@@ -91,6 +91,6 @@ app.get("/", function (req, res) {
   res.render("index.ejs",{dat: " "});
 });
 
-app.listen(8080 || 5000 || 8000);
+app.listen(process.env.PORT || 8080 || 5000 || 8000);
 
 
